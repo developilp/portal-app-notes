@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>完美电竞 · 快速了解</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f8fc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1d2d3a;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 0 60px;
+    }
+
+    /* --- hero 区 --- */
+    .hero {
+      background: linear-gradient(135deg, #d9eee8 0%, #c0e0db 100%);
+      border-radius: 32px;
+      padding: 48px 36px;
+      margin-bottom: 48px;
+      box-shadow: 0 6px 18px rgba(26, 115, 104, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(64, 175, 155, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #12463c;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .sub {
+      font-size: 1.2rem;
+      color: #2a5a50;
+      max-width: 600px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 8px 20px;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      color: #1f5548;
+      font-weight: 450;
+    }
+
+    /* --- 网格卡片 优势区 --- */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 4px 12px rgba(0, 40, 30, 0.04);
+      border: 1px solid #dfece8;
+      transition: all 0.15s ease;
+    }
+
+    .card:hover {
+      border-color: #79bdb0;
+      box-shadow: 0 8px 20px rgba(56, 142, 121, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      display: inline-block;
+      background: #e6f3ef;
+      width: 48px;
+      height: 48px;
+      line-height: 52px;
+      text-align: center;
+      border-radius: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #12463c;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #3d5a52;
+    }
+
+    /* --- 说明区 --- */
+    .explain {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 36px 32px;
+      margin-bottom: 44px;
+      box-shadow: 0 4px 14px rgba(0, 30, 20, 0.03);
+      border: 1px solid #dcebe6;
+    }
+
+    .explain h2 {
+      font-size: 1.7rem;
+      font-weight: 450;
+      color: #1b4e42;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .explain h2 span {
+      background: #cae1da;
+      width: 8px;
+      height: 28px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .explain p {
+      max-width: 780px;
+      margin-bottom: 16px;
+      color: #2c4b42;
+    }
+
+    .explain .highlight {
+      background: #eef8f4;
+      padding: 16px 22px;
+      border-radius: 20px;
+      margin-top: 16px;
+      border-left: 5px solid #48a590;
+    }
+
+    .explain .highlight a {
+      color: #166b59;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+    }
+
+    .explain .highlight a:hover {
+      color: #0b463b;
+    }
+
+    /* --- FAQ 摘要 --- */
+    .faq-summary {
+      margin-bottom: 44px;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.5rem;
+      font-weight: 450;
+      color: #1b4e42;
+      margin-bottom: 20px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 18px 24px;
+      margin-bottom: 12px;
+      border: 1px solid #dcebe6;
+      transition: border 0.1s;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #12463c;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      color: #3b5c52;
+      font-size: 0.92rem;
+    }
+
+    .faq-item:hover {
+      border-color: #81c7b7;
+    }
+
+    /* --- 底部链接 --- */
+    .footer-links {
+      text-align: center;
+      padding: 32px 0 8px;
+      border-top: 1px solid #cfe3dd;
+    }
+
+    .footer-links p {
+      font-size: 0.9rem;
+      color: #4b6f64;
+      margin-bottom: 6px;
+    }
+
+    .footer-links a {
+      color: #0b6b55;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 460;
+    }
+
+    .footer-links a:hover {
+      color: #063d31;
+    }
+
+    .footer-meta {
+      margin-top: 12px;
+      color: #709287;
+      font-size: 0.8rem;
+    }
+
+    /* --- 移动端友好 --- */
+    @media (max-width: 640px) {
+      body {
+        padding: 0 14px;
+      }
+
+      .hero {
+        padding: 32px 20px;
+        border-radius: 24px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .sub {
+        font-size: 1rem;
+      }
+
+      .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .explain {
+        padding: 24px 18px;
+      }
+
+      .explain h2 {
+        font-size: 1.3rem;
+      }
+
+      .faq-item {
+        padding: 14px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+      <h1>完美电竞</h1>
+      <div class="sub">一个让你快速确认平台用途、了解服务边界的介绍页。</div>
+      <div class="tagline">信息直观 · 结构清晰 · 没有干扰</div>
+    </div>
+
+    <!-- 优势区：网格卡片 -->
+    <div class="grid-cards">
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>定位明确</h3>
+        <p>聚合赛事、数据、社区等模块，方便你第一时间理解网站提供的方向。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📋</div>
+        <h3>内容集中</h3>
+        <p>页面围绕电竞信息与工具展开，不掺杂无关跳转或冗余引导。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔍</div>
+        <h3>快速识别</h3>
+        <p>从首页结构即可判断网站是否匹配你的需求，节约浏览成本。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📱</div>
+        <h3>适配阅读</h3>
+        <p>卡片与分段在手机和桌面端均保持整洁，信息层级一目了然。</p>
+      </div>
+    </div>
+
+    <!-- 说明区 -->
+    <div class="explain">
+      <h2><span></span> 这个网站做什么？</h2>
+      <p>
+        如果你第一次看到 <a href="https://en-wanmei.com">完美电竞</a>，可能会想：这是一个提供赛事资讯、数据查询还是社区交流的站点？实际上它围绕电竞生态整合了多种功能模块，你可以通过首页导航快速定位自己感兴趣的部分。
+      </p>
+      <p>
+        页面设计偏向直接展示信息，没有复杂的层级跳跃。对于想了解当前赛事、战队数据或基础工具的用户，入口清晰可见。如果你正在寻找一个信息密度适中、且不制造紧迫感的电竞平台，可以花几分钟浏览。
+      </p>
+      <div class="highlight">
+        <strong style="display:block; margin-bottom:4px; color:#12463c;">📌 一点说明</strong>
+        本站内容由官方维护，信息更新频率与赛事周期同步。大部分功能无需注册即可使用，部分个性化选项需要登录。如果你只是偶尔查看数据或赛程，基本没有使用门槛。
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+      <h2>常见疑问 · 摘要</h2>
+      <div class="faq-item">
+        <strong>▸ 需要下载客户端吗？</strong>
+        <p>不需要。所有功能都在浏览器内完成，移动端适配良好，可以直接使用。</p>
+      </div>
+      <div class="faq-item">
+        <strong>▸ 比赛数据覆盖哪些游戏？</strong>
+        <p>以主流竞技项目为主，具体列表可以在对应板块中看到。数据来源可靠，更新节奏稳定。</p>
+      </div>
+      <div class="faq-item">
+        <strong>▸ 是否提供社区互动功能？</strong>
+        <p>有基础的讨论与评论模块，但整体更侧重信息呈现，社区氛围比较安静克制。</p>
+      </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+      <p>想直接了解全部内容？前往 <a href="https://en-wanmei.com">完美电竞</a> 浏览完整页面。</p>
+      <p class="footer-meta">本页仅用于介绍，无任何跳转追踪。</p>
+    </div>
+
+  </div>
+</body>
+</html>
